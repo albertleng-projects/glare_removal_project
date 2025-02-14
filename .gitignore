@@ -2,7 +2,6 @@
 venv/
 
 # PyCharm project files
-.idea
 .idea/
 .idea/**/workspace.xml
 .idea/**/tasks.xml
