@@ -54,3 +54,8 @@ cmake-build-*/
 .idea/*
 !.idea/codeStyles
 !.idea/runConfigurations
+
+data/
+data/*
+
+.ipynb_checkpoints/
