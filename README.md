@@ -114,6 +114,8 @@ jupyter notebook
 - The final **training loss** and **validation loss** per epoch are shown in **Results**
   of [03_model_evaluation.ipynb](notebooks/03_model_evaluation.ipynb).
 - Lower **L1 loss** indicates better performance.
+- The **validation loss** achieved is **0.1388**, which does not meet the target of **0.06** due to constraints in time
+  and resources. That would be addressed in future enhancements.
 
 ---
 
@@ -145,3 +147,4 @@ See the [api/README.md](./api/README.md) for detailed instructions on setting up
 
 - Host API on **AWS/GCP/Azure** with **Docker & Kubernetes**.
 - Use **CI/CD pipelines** for automated deployment.
+
