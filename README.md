@@ -142,6 +142,7 @@ See the [api/README.md](./api/README.md) for detailed instructions on setting up
 - Use **FastAPI** instead of Flask for faster inference.
 - Deploy model using **TensorRT** for optimized GPU execution.
 - Utilize **GPU** (e.g., Google Colab) for faster model training and inference.
+- Implement support of **batch processing** for multiple images.
 
 ### 4. Deploy to Cloud
 
