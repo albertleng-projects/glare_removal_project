@@ -76,7 +76,7 @@ jupyter notebook
 
 ### 1️⃣ **Data Preprocessing ([01_data_preprocessing.ipynb](notebooks/01_data_preprocessing.ipynb))**
 
-- Loads the dataset from `data/` (not included in Git).
+- Loads the dataset from `data/` (not included in the repo due to large size).
 - Applies transformations such as resizing, normalization, and augmentation.
 - Splits data into **training** and **validation** sets.
 
@@ -135,10 +135,11 @@ See the [api/README.md](./api/README.md) for detailed instructions on setting up
 - Collect more **diverse glare-affected images**.
 - Augment dataset with **synthetic glare effects**.
 
-### 3. Optimize API Performance
+### 3. Optimize API Performance and Use GPU
 
 - Use **FastAPI** instead of Flask for faster inference.
 - Deploy model using **TensorRT** for optimized GPU execution.
+- Utilize **GPU** (e.g., Google Colab) for faster model training and inference.
 
 ### 4. Deploy to Cloud
 
