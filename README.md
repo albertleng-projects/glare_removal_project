@@ -117,6 +117,9 @@ jupyter notebook
 - The **validation loss** achieved is **0.1388**, which does not meet the target of **0.06** due to constraints in time
   and resources. That would be addressed in future enhancements.
 
+*(Note: I overlooked plotting Training Loss vs Validation Loss for epochs, and due to long training
+  intervals, I could not rerun the training to plot again)*
+
 ---
 
 ## 🚀 Using the API
