@@ -62,4 +62,8 @@ data/*
 archives/
 
 notebooks/*.py
+api/enhanced_image.png
+
+static/
+static/*
 

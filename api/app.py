@@ -8,7 +8,7 @@ from io import BytesIO
 from PIL import Image
 import numpy as np
 import torch
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from models.autoencoder.auto import Auto
 import torchvision.transforms as transforms
 from pathlib import Path
@@ -21,8 +21,14 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
+# Define the path to save images
+STATIC_FOLDER = os.path.join(os.getcwd(), 'static')
+if not os.path.exists(STATIC_FOLDER):
+    os.makedirs(STATIC_FOLDER)
+
 # Load your model here
-MODEL_PATH = Path("../models/final_glare_removal_autoencoder.pth")
+MODEL_PATH = Path("../models/final_glare_removal_autoencoder.pth") if Path(
+    "../models/final_glare_removal_autoencoder.pth").exists() else Path("./models/final_glare_removal_autoencoder.pth")
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 logger.info(f"Using device: {device}")
 
@@ -118,11 +124,24 @@ def save_image_locally(image_base64):
         # Load the binary data as an image
         img = Image.open(BytesIO(img_data))
 
-        # Save the image locally
-        img.save('enhanced_image.png')
+        # Save the image locally in the 'static' folder
+        img.save(os.path.join(STATIC_FOLDER, 'enhanced_image.png'))
         logger.info("Image saved locally as 'enhanced_image.png'")
     except Exception as e:
         logger.error("Error saving the image locally: %s", e)
+
+
+@app.route('/static/<filename>')
+def serve_static_file(filename):
+    """Serve files from the static folder."""
+    return send_from_directory(STATIC_FOLDER, filename)
+
+
+@app.route('/list_files', methods=['GET'])
+def list_files():
+    """List all files in the static folder."""
+    files = [{"filename": file, "url": f"/static/{file}"} for file in os.listdir(STATIC_FOLDER)]
+    return jsonify({"files": files})
 
 
 if __name__ == '__main__':
