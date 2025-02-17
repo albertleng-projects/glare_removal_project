@@ -17,6 +17,7 @@ affected by glare and generate an enhanced, glare-free version.
 glare_removal_project/
 │── api/                # Flask API for model inference
 │── data/               # Data used for training (ignored in Git)
+      |── SD1/          # SD1 dataset (not included in the repo)
 │── models/             # Trained models & autoencoder architecture
 │── notebooks/          # Jupyter notebooks for training and evaluation
 │── Dockerfile          # Containerization setup for the API
@@ -76,13 +77,16 @@ jupyter notebook
 
 ### 1️⃣ **Data Preprocessing ([01_data_preprocessing.ipynb](notebooks/01_data_preprocessing.ipynb))**
 
-- Loads the dataset from `data/` (not included in the repo due to large size).
+- Loads the dataset from `data/` (not included in the repo due to large size). The data is the
+  [SD1 dataset](https://drive.google.com/file/d/1r4OyMN-4aBEXP-usvrvOvNCEJhoQIRnL/view?usp=share_link).
 - Applies transformations such as resizing, normalization, and augmentation.
 - Splits data into **training** and **validation** sets.
 
 ### 2️⃣ **Model Training ([02_model_training.ipynb](notebooks/02_model_training.ipynb))**
 
-- Defines the **autoencoder architecture** ([models/autoencoder/auto.py](models/autoencoder/auto.py)).
+- Defines the **autoencoder architecture** ([models/autoencoder/auto.py](models/autoencoder/auto.py)). The autoencoder
+  is adopted from [Deceptrax123
+  autoencoder-image-glare-removal](https://github.com/Deceptrax123/autoencoder-image-glare-removal/tree/main/models/autoencoder).
 - Trains the model using **L1 loss** (Mean Absolute Error).
 - Uses **Adam optimizer** for weight updates.
 - Monitors **training loss** and **validation loss** per epoch.
@@ -118,7 +122,7 @@ jupyter notebook
   and resources. That would be addressed in future enhancements.
 
 *(Note: I overlooked plotting Training Loss vs Validation Loss for epochs, and due to long training
-  intervals, I could not rerun the training to plot again)*
+intervals, I could not rerun the training to plot again)*
 
 ---
 
