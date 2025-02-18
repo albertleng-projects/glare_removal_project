@@ -3,10 +3,12 @@
 This repository contains an implementation of a **glare removal model** using an **autoencoder**. The project is
 structured into two main components:
 
-1. **`api/`** – A Flask-based API for model inference.
-2. **`notebooks/`** – Jupyter notebooks for data preprocessing, model training, evaluation, and inference.
+1. [**`api/`**](./api/) – A Flask-based API for model inference.
+2. [**`notebooks/`**](./notebooks/) – Jupyter notebooks for data preprocessing, model training, evaluation, and
+   inference.
 
-The model is trained using **an autoencoder** located in `models/autoencoder/`. The **goal** is to process images
+The model is trained using **an autoencoder** located in [`models/autoencoder/`](./models/autoencoder). The **goal** is
+to process images
 affected by glare and generate an enhanced, glare-free version.
 
 ---
@@ -128,7 +130,7 @@ intervals, I could not rerun the training to plot again)*
 
 ## 🚀 Using the API
 
-The `api/` folder contains a Flask-based API to serve the trained model.
+The [`api/`](./api) folder contains a Flask-based API to serve the trained model.
 
 See the [api/README.md](./api/README.md) for detailed instructions on setting up and running the API.
 
