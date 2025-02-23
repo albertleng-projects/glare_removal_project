@@ -7,7 +7,7 @@ structured into two main components:
 2. [**`notebooks/`**](./notebooks/) – Jupyter notebooks for data preprocessing, model training, evaluation, and
    inference.
 
-The model is trained using **an autoencoder** located in [`models/autoencoder/`](./models/autoencoder). The **goal** is
+The model is trained using **TODO** located `TODO`. The **goal** is
 to process images
 affected by glare and generate an enhanced, glare-free version.
 
@@ -20,7 +20,7 @@ glare_removal_project/
 │── api/                # Flask API for model inference
 │── data/               # Data used for training (ignored in Git)
       |── SD1/          # SD1 dataset (not included in the repo)
-│── models/             # Trained models & autoencoder architecture
+│── model/              # Trained models & checkpoints
 │── notebooks/          # Jupyter notebooks for training and evaluation
 │── Dockerfile          # Containerization setup for the API
 │── README.md           # Documentation
@@ -86,9 +86,7 @@ jupyter notebook
 
 ### 2️⃣ **Model Training ([02_model_training.ipynb](notebooks/02_model_training.ipynb))**
 
-- Defines the **autoencoder architecture** ([models/autoencoder/auto.py](models/autoencoder/auto.py)). The autoencoder
-  is adopted from [Deceptrax123
-  autoencoder-image-glare-removal](https://github.com/Deceptrax123/autoencoder-image-glare-removal/tree/main/models/autoencoder).
+- Defines the **TODO**
 - Trains the model using **L1 loss** (Mean Absolute Error).
 - Uses **Adam optimizer** for weight updates.
 - Monitors **training loss** and **validation loss** per epoch.
@@ -102,7 +100,7 @@ jupyter notebook
 
 ### 4️⃣ **Model Inference ([04_inference.ipynb](notebooks/04_inference.ipynb))**
 
-- Loads a saved model ([models/final_glare_removal_autoencoder.pth](models/final_glare_removal_autoencoder.pth)).
+- Loads a saved model ([model/TODO]).
 - Runs inference on new input images.
 - Saves and displays the enhanced (glare-free) images.
 
@@ -110,7 +108,7 @@ jupyter notebook
 
 ## 🏗️ Model Details
 
-- The project uses a **convolutional autoencoder** for glare removal.
+- The project uses a **TODO** for glare removal.
 - The encoder extracts features from the input image.
 - The decoder reconstructs the glare-free image.
 - The model is trained using an **L1 loss function**, as it is well-suited for image restoration tasks.
@@ -120,11 +118,7 @@ jupyter notebook
 - The final **training loss** and **validation loss** per epoch are shown in **Results**
   of [03_model_evaluation.ipynb](notebooks/03_model_evaluation.ipynb).
 - Lower **L1 loss** indicates better performance.
-- The **validation loss** achieved is **0.1388**, which does not meet the target of **0.06** due to constraints in time
-  and resources. That would be addressed in future enhancements.
-
-*(Note: I overlooked plotting Training Loss vs Validation Loss for epochs, and due to long training
-intervals, I could not rerun the training to plot again)*
+- The **validation loss** achieved is **TODO**
 
 ---
 
