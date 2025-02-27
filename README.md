@@ -20,7 +20,7 @@ glare_removal_project/
 │── api/                # Flask API for model inference
 │── data/               # Data used for training (ignored in Git)
       |── SD1/          # SD1 dataset (not included in the repo)
-│── model/              # Trained models & checkpoints
+│── models/             # Trained models & checkpoints
 │── notebooks/          # Jupyter notebooks for training and evaluation
 │── Dockerfile          # Containerization setup for the API
 │── README.md           # Documentation
