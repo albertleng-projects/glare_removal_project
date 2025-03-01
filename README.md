@@ -25,7 +25,8 @@ glare_removal_project/
 │── Dockerfile          # Containerization setup for the API
 │── README.md           # Documentation
 │── requirements.txt    # Python dependencies
-└── .gitignore          # Files to be ignored in version control
+│── .gitignore          # Files to be ignored in version control
+└── .gitattributes      # Git LFS tracking for large files
 ```
 
 ---
