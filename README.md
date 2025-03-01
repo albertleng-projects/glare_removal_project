@@ -1,15 +1,14 @@
 # Glare Removal Project
 
-This repository contains an implementation of a **glare removal model** using an **autoencoder**. The project is
+This repository contains an implementation of a **glare removal model** using **UNet-GAN model**. The project is
 structured into two main components:
 
 1. [**`api/`**](./api/) – A Flask-based API for model inference.
 2. [**`notebooks/`**](./notebooks/) – Jupyter notebooks for data preprocessing, model training, evaluation, and
    inference.
 
-The model is trained using **TODO** located `TODO`. The **goal** is
-to process images
-affected by glare and generate an enhanced, glare-free version.
+The **goal** of this project is to process images affected by glare and generate an **enhanced, glare-free version**.
+
 
 ---
 
@@ -25,7 +24,8 @@ glare_removal_project/
 │── Dockerfile          # Containerization setup for the API
 │── README.md           # Documentation
 │── requirements.txt    # Python dependencies
-└── .gitignore          # Files to be ignored in version control
+|── .gitignore          # Files to be ignored in version control
+└── .gitattributes      # Git LFS tracking for large files
 ```
 
 ---
@@ -86,7 +86,7 @@ jupyter notebook
 
 ### 2️⃣ **Model Training ([02_model_training.ipynb](notebooks/02_model_training.ipynb))**
 
-- Defines the **TODO**
+- Defines the **UNet GAN** model.
 - Trains the model using **L1 loss** (Mean Absolute Error).
 - Uses **Adam optimizer** for weight updates.
 - Monitors **training loss** and **validation loss** per epoch.
@@ -96,35 +96,38 @@ jupyter notebook
 - Loads the trained model.
 - Computes evaluation metrics (**L1 loss** on test images).
 - Displays **sample predictions** (before and after glare removal).
-- Identifies potential areas for improvement.
+- Identifies potential **areas for improvement**.
 
 ### 4️⃣ **Model Inference ([04_inference.ipynb](notebooks/04_inference.ipynb))**
 
-- Loads a saved model ([model/TODO]).
+- Loads a saved model from [models/checkpoints](./models/checkpoints).
 - Runs inference on new input images.
-- Saves and displays the enhanced (glare-free) images.
+- Saves and displays the **enhanced (glare-free) images**.
 
 ---
 
 ## 🏗️ Model Details
 
-- The project uses a **TODO** for glare removal.
-- The encoder extracts features from the input image.
-- The decoder reconstructs the glare-free image.
+- The project uses a **UNet GAN** for **glare removal**.
+- The **encoder** extracts features from the input image.
+- The **decoder** reconstructs the glare-free image.
 - The model is trained using an **L1 loss function**, as it is well-suited for image restoration tasks.
 
-**Training Results:**
+### Training Results:
 
 - The final **training loss** and **validation loss** per epoch are shown in **Results**
-  of [03_model_evaluation.ipynb](notebooks/03_model_evaluation.ipynb).
+  of [03_model_evaluation.ipynb](./notebooks/03_model_evaluation.ipynb).
 - Lower **L1 loss** indicates better performance.
-- The **validation loss** achieved is **TODO**
+- The **validation loss** achieved is approximately **0.058**, which meets the target of **0.06**.
+- The best-performing model is from **epoch 5**, selected based on its performance.
+- See the training and validation loss plot below:
+  ![](./training-validation-loss.JPG)
 
 ---
 
 ## 🚀 Using the API
 
-The [`api/`](./api) folder contains a Flask-based API to serve the trained model.
+The [`api/`](./api) folder contains a **Flask-based API** to serve the trained model.
 
 See the [api/README.md](./api/README.md) for detailed instructions on setting up and running the API.
 
@@ -132,13 +135,13 @@ See the [api/README.md](./api/README.md) for detailed instructions on setting up
 
 ### 1. Improve Model Performance
 
-- Experiment with more **complex architectures** (e.g., UNet, GANs).
 - Tune **hyperparameters** (learning rate, batch size, etc.).
+- Train on a **larger dataset** for better generalization.
 
 ### 2. Better Training Dataset
 
 - Collect more **diverse glare-affected images**.
-- Augment dataset with **synthetic glare effects**.
+- Augment dataset with **synthetic glare effects** to improve robustness.
 
 ### 3. Optimize API Performance and Use GPU
 
@@ -151,4 +154,5 @@ See the [api/README.md](./api/README.md) for detailed instructions on setting up
 
 - Host API on **AWS/GCP/Azure** with **Docker & Kubernetes**.
 - Use **CI/CD pipelines** for automated deployment.
+- Use **AWS Lambda** or **serverless functions** for inference.
 

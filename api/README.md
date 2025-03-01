@@ -8,7 +8,7 @@ The API is built with **Flask** and can be **containerized using Docker** for ea
 ## 📌 Features
 
 - ✅ Removes glare from images using a **trained UNet-GAN model**
-- ✅ Accepts **JPEG (.jpg, .jpeg) and PNG (.png) images**
+- ✅ Accepts **PNG (.png) images**
 - ✅ Converts images to **grayscale before processing**
 - ✅ Provides a REST API with **Flask**
 - ✅ Deployable using **Docker**
