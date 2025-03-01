@@ -119,7 +119,8 @@ jupyter notebook
   of [03_model_evaluation.ipynb](./notebooks/03_model_evaluation.ipynb).
 - Lower **L1 loss** indicates better performance.
 - The **validation loss** achieved is approximately **0.058**, which meets the target of **0.06**.
-- The best-performing model is from **epoch 5**, selected based on its performance.
+- The best-performing model is from [epoch 5](./models/checkpoints/final_model_epoch_5.pth), selected based on its
+  performance.
 - See the training and validation loss plot below:
   ![](./training-validation-loss.JPG)
 
