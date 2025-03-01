@@ -81,7 +81,7 @@ jupyter notebook
 
 - Loads the dataset from `data/` (not included in the repo due to large size). The data is the
   [SD1 dataset](https://drive.google.com/file/d/1r4OyMN-4aBEXP-usvrvOvNCEJhoQIRnL/view?usp=share_link).
-- Applies transformations such as resizing, normalization, and augmentation.
+- Applies transformations such as **resizing**, **normalization**, and **augmentation**.
 - Splits data into **training** and **validation** sets.
 
 ### 2️⃣ **Model Training ([02_model_training.ipynb](notebooks/02_model_training.ipynb))**
