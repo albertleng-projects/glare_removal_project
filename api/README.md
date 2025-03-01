@@ -1,9 +1,21 @@
 # Glare Removal API Service
 
-This project provides an API for glare removal from images using a trained autoencoder model. The API is built with
-Flask and exposed as a REST service. The application can be containerized using Docker for easy deployment.
+This project provides a **RESTful API** for glare removal from images using a trained **UNet-GAN model**.  
+The API is built with **Flask** and can be **containerized using Docker** for easy deployment.
 
-## Steps to Build and Run the Docker Container
+---
+
+## 📌 Features
+
+- ✅ Removes glare from images using a **trained UNet-GAN model**
+- ✅ Accepts **JPEG (.jpg, .jpeg) and PNG (.png) images**
+- ✅ Converts images to **grayscale before processing**
+- ✅ Provides a REST API with **Flask**
+- ✅ Deployable using **Docker**
+
+---
+
+## 🚀 Quick Start Guide
 
 ### 1. Clone the Repository
 
@@ -98,4 +110,68 @@ http://localhost:4000/static/enhanced_image.png
 
 The response will be the enhanced image.
 
+### 🛠 Running Without Docker
 
+If you want to run the app without Docker, follow these steps:
+
+#### 1️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+#### 2️⃣ Run the Flask App
+
+```bash
+python app.py
+```
+
+#### 3️⃣ Test the API
+
+The API will be available at: 📌 http://127.0.0.1:4000
+
+### 📝 Notes & Troubleshooting
+
+#### 💡 1. Model Not Found Error
+
+If you see this error:
+
+```bash
+❌ Model file not found at: models/final_model_epoch_5.pth
+```
+
+**Solution**: Make sure the model file exists in `models/` directory. If it's missing, place the correct
+`final_model_epoch_5.pth` file in:
+
+```bash
+glare_removal_project/models/final_model_epoch_5.pth
+```
+
+#### 💡 2. Container Already Running
+
+If you see this error:
+
+```bash
+docker: Error response from daemon: Conflict. The container name "/glare-removal-api" is already in use.
+```
+
+**Solution**: Stop and remove the existing container before restarting:
+
+```bash
+docker rm -f glare-removal-api
+docker run -p 4000:4000 glare-removal-api
+```
+
+#### 💡 3. Flask App Not Starting
+
+If the app **fails to start**, try running it manually and check for missing dependencies:
+
+```bash
+python app.py
+```
+
+Ensure all dependencies are installed using:
+
+```bash
+pip install -r requirements.txt
+```
